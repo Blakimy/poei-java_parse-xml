@@ -2,18 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>chat</title>
+<!-- <     <link rel="stylesheet" type="text/css" href="css/style.css">
+ -->    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <style type="text/css">    
+        </style>
   </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
+  <body> 
+    <script type="text/javascript" src="renderer.js"></script>
+    <script type="text/javascript" src="js/rss_retrieve.js"></script>      
+    <script> 
+      if (typeof module === 'object') {window.module = module; module = undefined;}
+    </script>
+    <script src="lib/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>if (window.module) module = window.module;</script>
     <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+
     </script>
   </body>
 </html>

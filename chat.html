@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+<!-- <     <link rel="stylesheet" type="text/css" href="css/style.css">
+ -->    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <style type="text/css">
+          
+        </style>
+  </head>
+  <body><div class="chatbox">
+    <ul></ul>
+    <input class="msg_box">
+      
+    </input>
+  </div>
+        
+    <script> 
+      if (typeof module === 'object') {window.module = module; module = undefined;}
+    </script>
+    <script src="lib/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>
+      var myName ='yann_le_méchant';
+      var socker = io.connect('http://10.94.101.6:3003/');
+
+      socker.on('server', function(data){
+      if (typeof data === 'object') {
+        if (myName == data.from){
+          $('#chat_box ul').prepend('<li class="my-msg">' +data. from + ':' + data.msg +'</li>');
+        }else{
+          $('#chat_box ul').prepend("<li>" + data.form + ":" + data.msg +"</li>");
+        }
+      }else{
+        $('#chat_box').prepend(data);
+      }
+    });
+    function sendMessage(){
+            socket.emit('client', myName, $('#msg_box').val());
+            $('#msg_box').val(null);
+          }
+    </script>
+  </body>
+</html>
